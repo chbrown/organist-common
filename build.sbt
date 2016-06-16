@@ -4,7 +4,10 @@ name := "common"
 
 version := "0.0.6"
 
+licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
+
 scalaVersion := "2.11.8"
+crossScalaVersions := Seq("2.10.6", "2.11.8")
 
 scalacOptions ++= Seq(
   "-unchecked",
