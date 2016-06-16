@@ -2,7 +2,7 @@ organization := "org.anist"
 
 name := "common"
 
-version := "0.0.6"
+version := "0.0.7"
 
 licenses += ("MIT", url("http://opensource.org/licenses/MIT"))
 
