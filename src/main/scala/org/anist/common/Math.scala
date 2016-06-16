@@ -63,9 +63,9 @@ object Math {
     }
     else {
       // otherwise, at least one of precision / recall will require computing the intersection
-      val truePositives = retrieved & relevant
-      val precision = if (retrieved.isEmpty) 0.0 else truePositives.size / retrieved.size
-      val recall = if (relevant.isEmpty) 0.0 else truePositives.size / relevant.size
+      val truePositivesSize = (retrieved & relevant).size.toDouble
+      val precision = if (retrieved.isEmpty) 0.0 else truePositivesSize / retrieved.size
+      val recall = if (relevant.isEmpty) 0.0 else truePositivesSize / relevant.size
       (precision, recall)
     }
   }
