@@ -15,7 +15,7 @@ object ListHeap {
   - http://lifelongprogrammer.blogspot.com/2014/12/scala-java-merge-k-sorted-list.html
   - http://stackoverflow.com/questions/5055909/algorithm-for-n-way-merge
   */
-  def merge[T <% Ordered[T]](lists: Iterable[List[T]]): Iterable[T] = {
+  def merge[T](lists: Iterable[List[T]])(implicit ev: T => Ordered[T]): Iterable[T] = {
     val headOrdering = new Ordering[List[T]] {
       def compare(a: List[T], b: List[T]) = b.head compare a.head
     }
