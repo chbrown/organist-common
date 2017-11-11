@@ -1,5 +1,7 @@
 package org.anist.common
 
+import iter.IterableOps
+
 /**
   * Prepare a Map from tokens to all the documents that contain them.
   *
@@ -43,7 +45,7 @@ class InvertedIndex(documents: Iterable[(String, Iterable[String])]) {
     val idScores = tokens.map(token => hashTable.getOrElse(token, List()))
     val idScoreTuples = ListHeap.merge(idScores)
 
-    Itertools.consecutiveGroupBy(idScoreTuples) { case (id, score) => id } map { case (id, tuples) =>
+    idScoreTuples.consecutiveGroupBy { case (id, score) => id } map { case (id, tuples) =>
       (id, tuples.map { case (_, score) => score }.sum / size)
     }
   }
