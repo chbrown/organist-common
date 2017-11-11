@@ -1,26 +1,28 @@
 package org.anist.common
 
 import java.io.{File, FileOutputStream, OutputStreamWriter}
+import java.nio.charset.Charset
 
 /**
   * The standard FileWriter sucks, see:
-  * - http://stackoverflow.com/questions/9852978/write-a-file-in-utf-8-using-filewriter-java
-  * - http://docs.oracle.com/javase/7/docs/api/java/io/FileWriter.html
+  * - https://stackoverflow.com/questions/9852978/write-a-file-in-utf-8-using-filewriter-java
+  * - https://docs.oracle.com/javase/8/docs/api/java/io/FileWriter.html
   */
 class FileWriter(pathname: String,
                  append: Boolean = false,
-                 encoding: String = "UTF-8") {
+                 charsetName: String = "UTF-8") {
   private val file = new File(pathname)
-  private val fileOutputStream = new FileOutputStream(file, append)
-  private val outputStreamWriter = new OutputStreamWriter(fileOutputStream, encoding)
+  private val stream = new FileOutputStream(file, append)
+  private val encoder = Charset.forName(charsetName).newEncoder()
+  private val writer = new OutputStreamWriter(stream, encoder)
 
   def write(output: String) {
-    outputStreamWriter.write(output)
-    outputStreamWriter.flush()
+    writer.write(output)
+    writer.flush()
   }
 
   def close() {
-    outputStreamWriter.close()
-    fileOutputStream.close()
+    writer.close()
+    stream.close()
   }
 }
