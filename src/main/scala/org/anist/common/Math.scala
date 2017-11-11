@@ -18,15 +18,15 @@ object Math {
   }
 
   /**
-    * Find the Jaccard similarity (the size of the intersection divided by the
-    * size of the union) between two sets.
+    * Find the Jaccard similarity (the size of the intersection divided by the size of the union) between two sets.
     *
-    * If the sets are identical, the similarity will be 1
-    * If they are the same length and share 2/3 of their elements, it will be 0.5
-    * If they are completely discrete, it will be 0
+    * @param a A set of elements of type T
+    * @param b Another set of elements of type T (order of a and b does not matter)
+    * @tparam T Can be any type, will be inferred from a and b, but a and b must have the same type.
+    * @return A similarity measure between 0 and 1: 0 if the sets are completely discrete, 1 if they are identical, or somewhere in between; e.g., if they are the same length and share 2/3 of their elements, it will be 0.5
     */
-  def jaccardSimilarity[T](source: Set[T], target: Set[T]): Double = {
-    (source & target).size.toDouble / (source | target).size.toDouble
+  def jaccardSimilarity[T](a: Set[T], b: Set[T]): Double = {
+    (a & b).size.toDouble / (a | b).size.toDouble
   }
 
   /**
