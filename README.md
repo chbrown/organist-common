@@ -2,18 +2,24 @@
 
 Personal library of useful things.
 
-Run `sbt +publish-local` in this directory to "publish" the `org.anist.common` package to the local Ivy/Maven cache, specifically, `~/.ivy2/local/org.anist/common_2.11/0.1.0/...`
 
-This repository is haphazardly published to [Bintray](https://bintray.com/). To publish:
+## Publishing and consuming
+
+Publish locally (to the local Ivy cache, `~/.ivy2/local/org.anist/...`):
+
+    sbt +publish-local
+
+Publish to [Bintray](https://bintray.com/):
 
     sbt +publish
 
-To install:
+Consume from [Bintray](https://bintray.com/) in your `build.sbt`:
 
-    # Add this to your `build.sbt`:
     resolvers += Resolver.bintrayRepo("chbrown", "maven")
     libraryDependencies += "org.anist" %% "common" % "0.1.0"
 
+
 ## License
 
-Copyright 2016 Christopher Brown. [MIT Licensed](http://chbrown.github.io/licenses/MIT/#2016)
+Copyright © 2016–2018 Christopher Brown.
+[MIT Licensed](https://chbrown.github.io/licenses/MIT/#2016-2018)
