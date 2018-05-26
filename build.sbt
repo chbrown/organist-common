@@ -8,7 +8,8 @@ lazy val sharedSettings = Seq(
     "-target:jvm-1.8",
     "-deprecation",
     "-unchecked",
-    "-feature"
+    "-feature",
+    "-Xfuture"
   )
 )
 
