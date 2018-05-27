@@ -1,10 +1,11 @@
-package org.anist.common
+package org.anist.stats
 
-object Random {
+object random {
   /**
     * Sample from xs with replacement.
-    * @param xs IndexedSeq (e.g., a Vector) of source elements
-    * @param n Number of source elements to sample
+    *
+    * @param xs   IndexedSeq (e.g., a Vector) of source elements
+    * @param n    Number of source elements to sample
     * @param seed Random number generator seed (Random isn't serializable, so we can't reliably pass it in)
     * @return IndexedSeq[T] containing subset of elements from xs
     */
@@ -15,15 +16,15 @@ object Random {
   }
 
   /**
-    * based on the Spark source:
-    * https://github.com/apache/spark/blob/master/core/src/main/scala/org/apache/spark/rdd/RDD.scala#L494
+    * Randomly split xs according to given weights.
     *
-    * @param xs Elements to be split
+    * @param xs      Elements to be split
     * @param weights Proportional size of each class (will be normalized to sum to 1)
-    * @param seed Random seed (since Random instances aren't serializable)
+    * @param seed    Random seed (since Random instances aren't serializable)
     * @return A list of the same length as weights, containing lists that are partitions of xs
     */
   def split[T](xs: Seq[T], weights: Seq[Double], seed: Long) = {
+    // Based on Apache Spark's org.apache.spark.rdd.RDD#randomSplit() (https://git.io/vhqbS)
     val random = new scala.util.Random(seed)
     val totalWeight = weights.sum
     val cumulativeWeights = weights.map(_ / totalWeight).scanLeft(0.0d)(_ + _)

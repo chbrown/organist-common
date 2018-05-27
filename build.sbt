@@ -13,6 +13,7 @@ lazy val sharedSettings = Seq(
   )
 )
 
-lazy val root = (project in file(".")).settings(skip in publish := true).aggregate(common, io)
+lazy val root = (project in file(".")).settings(skip in publish := true).aggregate(common, io, stats)
 lazy val common = (project in file("common")).settings(sharedSettings)
 lazy val io = (project in file("io")).settings(sharedSettings)
+lazy val stats = (project in file("stats")).settings(sharedSettings)
