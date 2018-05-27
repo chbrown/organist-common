@@ -1,6 +1,6 @@
 lazy val sharedSettings = Seq(
   organization := "org.anist",
-  version := "0.1.0",
+  version := "0.2.0",
   licenses := Seq(("MIT", url("http://opensource.org/licenses/MIT"))),
   scalaVersion := "2.11.12",
   crossScalaVersions := Seq("2.11.12", "2.12.6"),

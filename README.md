@@ -1,4 +1,4 @@
-# [org.anist](http://anist.org).common
+# [org.anist](http://anist.org).lib
 
 Personal library of useful things.
 
@@ -16,7 +16,7 @@ Publish to [Bintray](https://bintray.com/):
 Consume from [Bintray](https://bintray.com/) in your `build.sbt`:
 
     resolvers += Resolver.bintrayRepo("chbrown", "maven")
-    libraryDependencies += "org.anist" %% "common" % "0.1.0"
+    libraryDependencies ++= Seq("common", "io", "stats", "text").map("org.anist" %% _ % "0.2.0")
 
 
 ## License
