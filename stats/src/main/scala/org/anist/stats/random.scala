@@ -12,6 +12,7 @@ object random {
   def sample[T](xs: IndexedSeq[T], n: Int, seed: Long) = {
     val random = new scala.util.Random(seed)
     val max = xs.size
+    // IndexedSeq.fill(n)(random.nextInt(max)).map(xs)
     IndexedSeq.fill(n) { max * random.nextDouble }.map(_.toInt).map(xs)
   }
 
