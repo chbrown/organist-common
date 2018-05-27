@@ -7,7 +7,7 @@ Personal library of useful things.
 
 Publish locally (to the local Ivy cache, `~/.ivy2/local/org.anist/...`):
 
-    sbt +publish-local
+    sbt +publishLocal
 
 Publish to [Bintray](https://bintray.com/):
 
