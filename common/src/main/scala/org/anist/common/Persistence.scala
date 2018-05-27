@@ -11,7 +11,7 @@ object Persistence {
     obj
   }
 
-  def serialize[T](obj: T, path: Path) {
+  def serialize[T](obj: T, path: Path): Unit = {
     val outputStream = new ObjectOutputStream(Files.newOutputStream(path))
     outputStream.writeObject(obj)
     outputStream.close()
