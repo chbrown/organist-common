@@ -15,7 +15,7 @@ Publish to [Bintray](https://bintray.com/):
 
 Consume from [Bintray](https://bintray.com/) in your `build.sbt`:
 
-    resolvers += Resolver.bintrayRepo("chbrown", "maven")
+    resolvers += Resolver.bintrayRepo("organist", "maven")
     libraryDependencies ++= Seq("common", "io", "stats", "text").map("org.anist" %% _ % "0.2.0")
 
 
