@@ -6,6 +6,11 @@ import java.nio.charset.Charset
 package object io {
   /**
     * Write or append a string to file with a specific encoding.
+    *
+    * @param file     Where to write contents
+    * @param append   If true and the file exists, append to it instead of overwriting
+    * @param encoding A valid Charset name used to encode string into bytes
+    * @param contents Full string to write to file
     */
   def writeFile(file: File, append: Boolean, encoding: String)(contents: String): Unit = {
     // Avoid java.io.FileWriter, which doesn't allow specifying an encoding.
